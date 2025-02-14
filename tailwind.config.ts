@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc/generated-native";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -11,6 +12,16 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      animation: {
+        "bounce-out": "bounceOut 0.5s ease-in", // Add custom animation
+      },
+      keyframes: {
+        bounceOut: {
+          "0%": { transform: "translateY(0)" },
+          "20%": {transform: "translateY(20vh)"},
+          "100%": { transform: "translateY(-100vh)" },
+        },
       },
     },
   },
