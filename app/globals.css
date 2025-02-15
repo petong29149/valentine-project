@@ -19,3 +19,115 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes bounce2 {
+  0% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+      scale: 1 1;
+  }
+  33% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0.1, 0.5, 0.1, 1);
+      scale: 1 0.9;
+  }
+  66% {
+      transform: translateY(-15%);
+      animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+      scale: 1 1;
+  }
+  90% {
+      transform: translateY(5%);
+      animation-timing-function: cubic-bezier(0.1, 0.5, 0.1, 1);
+      scale: 1 0.9;
+  }
+  100% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0.1, 0.5, 0.1, 1);
+      scale: 1 1;
+  }
+}
+
+.animate-bounce2 {
+  animation-name: bounce2;
+  animation-duration: 2s;
+  animation-direction: forwards;
+  animation-iteration-count: 1;
+}
+
+/* From Uiverse.io by FWDJc */ 
+.loader {
+  width: 7em;
+  height: 5em;
+  position: relative;
+  animation: beat 1s infinite;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  border-radius: 5em 5em 0 0;
+  animation: coldblue 1s infinite;
+}
+
+.loader::before {
+  left: 50px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.loader::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes coldblue {
+  0%, 100% {
+    background-color: rgb(207, 58, 58);
+  }
+
+  50% {
+    background-color: rgb(198, 23, 23);
+  }
+}
+
+@keyframes dot-sequence {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+  100% { content: '.'; }
+}
+
+.animate-dot-sequence::after {
+  content: '.';
+  display: inline-block;
+  animation: dot-sequence 1.5s steps(1, end) infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari */
+}
+.custom-scrollbar {
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;     /* Hide scrollbar for Firefox */
+}
+
